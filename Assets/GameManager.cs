@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     {
         public string name;
         public int power;
-        public GameObject prefab; // Menambahkan prefab sebagai objek Entity
+        public GameObject gameObject; // Use GameObject instead of prefab
+        public GameObject uiElement;
     }
 
     public List<Entity> characters;
@@ -25,43 +26,64 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        // Gabungkan karakter dan musuh menjadi satu list
+        // Combine characters and enemies into one list
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        // Urutkan list berdasarkan kekuatan secara descending
+        // Sort the list based on power in descending order
         List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
 
-        // List untuk menyimpan urutan pergerakan
+        // List to store movement order
         List<string> movementOrder = new List<string>();
 
-        // Loop untuk menentukan urutan pergerakan
+        // Loop to determine movement order
         foreach (Entity entity in sortedEntities)
         {
-            GameObject entityObject = Instantiate(entity.prefab); // Instantiate objek prefab
-            entityObject.name = entity.name; // Beri nama objek sesuai nama karakter/musuh
-            // Lakukan sesuatu dengan objek seperti menambahkan ke dalam daftar atau menggerakkan objek
+            GameObject entityObject = entity.gameObject; // Use the provided game object
+
+            // Do something with the object, such as adding it to a list or moving it
             // ...
 
             if (characters.Contains(entity))
             {
                 movementOrder.Add($"Character {characters.IndexOf(entity) + 1}");
+
+                // Call the ActivateUI function if the object has a UI element to be activated
+                ActivateUI(entity.uiElement);
             }
             else
             {
                 movementOrder.Add($"Enemy {enemies.IndexOf(entity) + 1}");
             }
+
+            // Add the ClickHandler component to respond to clicks
+            entityObject.AddComponent<ClickHandler>();
+
+            // Call the Attack function if the object has an Attackable component
+            Attackable attackableComponent = entityObject.GetComponent<Attackable>();
+            if (attackableComponent != null)
+            {
+                attackableComponent.Attack();
+            }
         }
 
-        // Tampilkan urutan pergerakan di konsol
-        Debug.Log($"Round {currentRound} - Urutan Pergerakan:");
+        // Display the movement order in the console
+        Debug.Log($"Round {currentRound} - Movement Order:");
         foreach (string entity in movementOrder)
         {
             Debug.Log(entity);
         }
 
-        // Akhir putaran, lanjutkan ke putaran berikutnya (dalam contoh ini, penambahan 1 ke putaran saat ini)
+        // End of round, proceed to the next round (in this example, add 1 to the current round)
         currentRound++;
-        // Tambahkan logika atau panggil fungsi berikutnya untuk melanjutkan permainan
+        // Add logic or call the next function to continue the game
+    }
+
+    void ActivateUI(GameObject uiElement)
+    {
+        if (uiElement != null)
+        {
+            uiElement.SetActive(true);
+        }
     }
 }

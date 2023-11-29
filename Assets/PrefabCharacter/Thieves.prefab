@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 7801787195737389692}
   - component: {fileID: 7801787195737389693}
   - component: {fileID: 7801787195737389666}
+  - component: {fileID: -1481335207625324810}
   m_Layer: 0
   m_Name: Thieves
   m_TagString: Untagged
@@ -226,6 +227,18 @@ MonoBehaviour:
   maxHp: 100
   currHealthChar: 100
   HPBar: {fileID: 7801787194946692462}
+--- !u!114 &-1481335207625324810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801787195737389695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e706d3a44054dd4ba33b94c0ea4ef53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7801787195813918471
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -963.28, y: -539.3776}
+  m_AnchoredPosition: {x: -443.102, y: -192.333}
   m_SizeDelta: {x: 0.8822, y: 0.2266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7801787195813918468
