@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public List<Entity> characters;
     public List<Entity> enemies;
 
+    private List<Entity> sortedEntities;
     private int currentRound = 1;
     private int currentEntityIndex = 0;
 
@@ -31,18 +32,16 @@ public class GameManager : MonoBehaviour
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ThenBy(entity => allEntities.IndexOf(entity)).ToList();
+        sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
 
         foreach (Entity entity in sortedEntities)
         {
             GameObject entityObject = entity.gameObject;
 
-            if (characters.Contains(entity))
-            {
-                bool isActiveUI = entity == sortedEntities.First();
-                ActivateUI(entity.uiElement, isActiveUI);
-            }
+            bool isActiveUI = entity == sortedEntities.First();
+            ActivateUI(entity.uiElement, isActiveUI);
 
+            // Perform actions based on entity type (character or enemy)
             if (characters.Contains(entity))
             {
                 // ... (rest of the code for characters)
@@ -76,17 +75,44 @@ public class GameManager : MonoBehaviour
         }
 
         currentRound++;
-        // Set the turn for the first enemy
-        if (enemies.Count > 0)
+        SetTurnForCurrentEntity();
+    }
+
+    void SetTurnForCurrentEntity()
+    {
+        Entity currentEntity = sortedEntities[currentEntityIndex];
+        if (enemies.Contains(currentEntity) && currentEntity.attackableComponent is EnemyAttackable)
         {
-            EnemyAttackable firstEnemy = enemies[0].attackableComponent as EnemyAttackable;
-            if (firstEnemy != null)
-            {
-                firstEnemy.SetEnemyTurn();
-            }
+            ((EnemyAttackable)currentEntity.attackableComponent).SetEnemyTurn();
+        }
+    }
+
+    public void AdvanceToNextLowestPowerEntity()
+    {
+        if (sortedEntities == null || sortedEntities.Count == 0)
+        {
+            Debug.LogWarning("No entities to advance.");
+            return;
         }
 
-        // ... (remaining code)
+        // Deactivate UI for the current entity
+        Entity currentEntity = sortedEntities[currentEntityIndex];
+        ActivateUI(currentEntity.uiElement, false);
+
+        // Move to the next entity in a round-robin fashion
+        currentEntityIndex = (currentEntityIndex + 1) % sortedEntities.Count;
+
+        // Activate UI for the next entity
+        Entity nextEntity = sortedEntities[currentEntityIndex];
+        ActivateUI(nextEntity.uiElement, true);
+
+        Debug.Log($"Next entity with highest power: {nextEntity.name}");
+
+        // Perform actions based on entity type (character or enemy)
+        if (enemies.Contains(nextEntity) && nextEntity.attackableComponent is EnemyAttackable)
+        {
+            ((EnemyAttackable)nextEntity.attackableComponent).EnemyAIAttack();
+        }
     }
 
     void ActivateUI(GameObject uiElement, bool isActive)
@@ -94,45 +120,6 @@ public class GameManager : MonoBehaviour
         if (uiElement != null)
         {
             uiElement.SetActive(isActive);
-        }
-    }
-
-    public void AdvanceToNextLowestPowerEntity()
-    {
-        List<Entity> allEntities = new List<Entity>(characters);
-        allEntities.AddRange(enemies);
-
-        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ThenBy(entity => allEntities.IndexOf(entity)).ToList();
-
-        if (currentEntityIndex < sortedEntities.Count - 1)
-        {
-            Entity nextEntity = sortedEntities[currentEntityIndex + 1];
-
-            currentEntityIndex++;
-
-            Debug.Log($"Next entity with highest power: {nextEntity.name}");
-
-            if (characters.Contains(sortedEntities[currentEntityIndex - 1]))
-            {
-                ActivateUI(sortedEntities[currentEntityIndex - 1].uiElement, false);
-            }
-
-            if (characters.Contains(nextEntity))
-            {
-                ActivateUI(nextEntity.uiElement, true);
-            }
-            else
-            {
-                // If it's an enemy, call the AI attack method
-                if (nextEntity.attackableComponent != null && nextEntity.attackableComponent is EnemyAttackable)
-                {
-                    ((EnemyAttackable)nextEntity.attackableComponent).EnemyAIAttack();
-                }
-            }
-        }
-        else
-        {
-            currentEntityIndex = 0;
         }
     }
 }
