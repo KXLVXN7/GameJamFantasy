@@ -4,6 +4,7 @@ public class EnemyAttackable : Attackable
 {
     public float enemyAttackPower = 10f; // Adjust the attack power as needed
     private GameManager gameManager; // Reference to the GameManager
+    private bool isEnemyTurn = false; // Flag to check if it's the enemy's turn
 
     private void Start()
     {
@@ -12,12 +13,28 @@ public class EnemyAttackable : Attackable
 
     public void EnemyAIAttack()
     {
-        // Implement AI logic for enemy attacks here
-        // For simplicity, let's assume the enemy attacks the player every time EnemyAIAttack is called
-        AttackCharacter();
+        // Check if it's the enemy's turn before allowing the attack
+        if (isEnemyTurn)
+        {
+            // Implement AI logic for enemy attacks here
+            // For simplicity, let's assume the enemy attacks the player every time EnemyAIAttack is called
+            AttackCharacter();
 
-        // After attacking, advance to the next entity in GameManager
-        gameManager.AdvanceToNextLowestPowerEntity();
+            // Optionally, you can add effects or animations for the enemy attack
+            // ...
+
+            Debug.Log("Enemy attacks the player!");
+        }
+        else
+        {
+            Debug.LogWarning("It's not the enemy's turn to attack.");
+        }
+    }
+
+    // Function to set the turn flag when it's the enemy's turn
+    public void SetEnemyTurn()
+    {
+        isEnemyTurn = true;
     }
 
     private void AttackCharacter()
@@ -32,11 +49,6 @@ public class EnemyAttackable : Attackable
             {
                 // Perform the attack on the character
                 characterHealth.TakeDamageCharacter(enemyAttackPower);
-
-                // Optionally, you can add effects or animations for the enemy attack
-                // ...
-
-                Debug.Log("Enemy attacks the player!");
             }
             else
             {

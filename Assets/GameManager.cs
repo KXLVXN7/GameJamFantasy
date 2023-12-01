@@ -21,12 +21,9 @@ public class GameManager : MonoBehaviour
     private int currentRound = 1;
     private int currentEntityIndex = 0;
 
-/*    public Button advanceButton;
-*/
     void Start()
     {
         StartRound();
-        /*advanceButton.onClick.AddListener(AdvanceToNextLowestPowerEntity);*/
     }
 
     void StartRound()
@@ -34,7 +31,7 @@ public class GameManager : MonoBehaviour
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
+        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ThenBy(entity => allEntities.IndexOf(entity)).ToList();
 
         foreach (Entity entity in sortedEntities)
         {
@@ -53,13 +50,10 @@ public class GameManager : MonoBehaviour
             else
             {
                 // ... (rest of the code for enemies)
-                if (entity.attackableComponent != null)
+                if (entity.attackableComponent != null && entity.attackableComponent is EnemyAttackable)
                 {
                     // If it's an enemy, call the AI attack method
-                    if (entity.attackableComponent is EnemyAttackable)
-                    {
-                        ((EnemyAttackable)entity.attackableComponent).EnemyAIAttack();
-                    }
+                    ((EnemyAttackable)entity.attackableComponent).EnemyAIAttack();
                 }
             }
 
@@ -82,6 +76,17 @@ public class GameManager : MonoBehaviour
         }
 
         currentRound++;
+        // Set the turn for the first enemy
+        if (enemies.Count > 0)
+        {
+            EnemyAttackable firstEnemy = enemies[0].attackableComponent as EnemyAttackable;
+            if (firstEnemy != null)
+            {
+                firstEnemy.SetEnemyTurn();
+            }
+        }
+
+        // ... (remaining code)
     }
 
     void ActivateUI(GameObject uiElement, bool isActive)
@@ -97,7 +102,7 @@ public class GameManager : MonoBehaviour
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
+        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ThenBy(entity => allEntities.IndexOf(entity)).ToList();
 
         if (currentEntityIndex < sortedEntities.Count - 1)
         {
