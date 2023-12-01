@@ -2144,22 +2144,22 @@ MonoBehaviour:
     power: 2
     gameObject: {fileID: 896066978}
     uiElement: {fileID: 0}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 896066984}
   - name: Enemy2
     power: 2
     gameObject: {fileID: 896066978}
     uiElement: {fileID: 0}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 557581177}
   - name: Enemy3
     power: 2
     gameObject: {fileID: 896066978}
     uiElement: {fileID: 0}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 1628449936}
   - name: Enemy4
     power: 2
     gameObject: {fileID: 896066978}
     uiElement: {fileID: 0}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 1159644882}
 --- !u!1 &822058089
 GameObject:
   m_ObjectHideFlags: 0
