@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,56 +10,60 @@ public class GameManager : MonoBehaviour
     {
         public string name;
         public int power;
-        public GameObject gameObject; // Use GameObject instead of prefab
+        public GameObject gameObject;
         public GameObject uiElement;
+        public Attackable attackableComponent; // Add a reference to the Attackable component
     }
 
     public List<Entity> characters;
     public List<Entity> enemies;
 
     private int currentRound = 1;
+    private int currentEntityIndex = 0;
 
+/*    public Button advanceButton;
+*/
     void Start()
     {
         StartRound();
+        /*advanceButton.onClick.AddListener(AdvanceToNextLowestPowerEntity);*/
     }
 
     void StartRound()
     {
-        // Combine characters and enemies into one list
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        // Sort the list based on power in descending order
         List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
 
-        // List to store movement order
-        List<string> movementOrder = new List<string>();
-
-        // Loop to determine movement order
         foreach (Entity entity in sortedEntities)
         {
-            GameObject entityObject = entity.gameObject; // Use the provided game object
-
-            // Do something with the object, such as adding it to a list or moving it
-            // ...
+            GameObject entityObject = entity.gameObject;
 
             if (characters.Contains(entity))
             {
-                movementOrder.Add($"Character {characters.IndexOf(entity) + 1}");
+                bool isActiveUI = entity == sortedEntities.First();
+                ActivateUI(entity.uiElement, isActiveUI);
+            }
 
-                // Call the ActivateUI function if the object has a UI element to be activated
-                ActivateUI(entity.uiElement);
+            if (characters.Contains(entity))
+            {
+                // ... (rest of the code for characters)
             }
             else
             {
-                movementOrder.Add($"Enemy {enemies.IndexOf(entity) + 1}");
+                // ... (rest of the code for enemies)
+                if (entity.attackableComponent != null)
+                {
+                    // If it's an enemy, call the AI attack method
+                    if (entity.attackableComponent is EnemyAttackable)
+                    {
+                        ((EnemyAttackable)entity.attackableComponent).EnemyAIAttack();
+                    }
+                }
             }
 
-            // Add the ClickHandler component to respond to clicks
             entityObject.AddComponent<ClickHandler>();
-
-            // Call the Attack function if the object has an Attackable component
             Attackable attackableComponent = entityObject.GetComponent<Attackable>();
             if (attackableComponent != null)
             {
@@ -67,23 +71,63 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // Display the movement order in the console
         Debug.Log($"Round {currentRound} - Movement Order:");
-        foreach (string entity in movementOrder)
+
+        foreach (Entity entity in sortedEntities.Skip(1))
         {
-            Debug.Log(entity);
+            if (characters.Contains(entity))
+            {
+                ActivateUI(entity.uiElement, false);
+            }
         }
 
-        // End of round, proceed to the next round (in this example, add 1 to the current round)
         currentRound++;
-        // Add logic or call the next function to continue the game
     }
 
-    void ActivateUI(GameObject uiElement)
+    void ActivateUI(GameObject uiElement, bool isActive)
     {
         if (uiElement != null)
         {
-            uiElement.SetActive(true);
+            uiElement.SetActive(isActive);
+        }
+    }
+
+    public void AdvanceToNextLowestPowerEntity()
+    {
+        List<Entity> allEntities = new List<Entity>(characters);
+        allEntities.AddRange(enemies);
+
+        List<Entity> sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
+
+        if (currentEntityIndex < sortedEntities.Count - 1)
+        {
+            Entity nextEntity = sortedEntities[currentEntityIndex + 1];
+
+            currentEntityIndex++;
+
+            Debug.Log($"Next entity with highest power: {nextEntity.name}");
+
+            if (characters.Contains(sortedEntities[currentEntityIndex - 1]))
+            {
+                ActivateUI(sortedEntities[currentEntityIndex - 1].uiElement, false);
+            }
+
+            if (characters.Contains(nextEntity))
+            {
+                ActivateUI(nextEntity.uiElement, true);
+            }
+            else
+            {
+                // If it's an enemy, call the AI attack method
+                if (nextEntity.attackableComponent != null && nextEntity.attackableComponent is EnemyAttackable)
+                {
+                    ((EnemyAttackable)nextEntity.attackableComponent).EnemyAIAttack();
+                }
+            }
+        }
+        else
+        {
+            currentEntityIndex = 0;
         }
     }
 }

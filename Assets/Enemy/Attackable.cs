@@ -11,7 +11,7 @@ public class Attackable : MonoBehaviour
 
     public void Attack()
     {
-        /*Debug.Log($"{entityInfo.name} melakukan serangan dengan kekuatan {entityInfo.power}!");*/
+   /*     Debug.Log($"{entityInfo.name} melakukan serangan dengan kekuatan {entityInfo.power}!");*/
         // Lakukan logika serangan atau apapun yang sesuai untuk permainan Anda
     }
 }
