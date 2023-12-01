@@ -2123,22 +2123,22 @@ MonoBehaviour:
     power: 3
     gameObject: {fileID: 1956149356}
     uiElement: {fileID: 1427861536}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 1956149365}
   - name: Mage
     power: 2
     gameObject: {fileID: 978773640}
     uiElement: {fileID: 491360099}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 978773649}
   - name: Healer
     power: 1
     gameObject: {fileID: 1414541891}
     uiElement: {fileID: 982925040}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 1414541899}
   - name: Thieves
     power: 1
     gameObject: {fileID: 2138644052}
     uiElement: {fileID: 1427718981}
-    attackableComponent: {fileID: 0}
+    attackableComponent: {fileID: 2138644061}
   enemies:
   - name: Enemy1
     power: 2
@@ -2927,6 +2927,7 @@ GameObject:
   - component: {fileID: 978773643}
   - component: {fileID: 978773647}
   - component: {fileID: 978773648}
+  - component: {fileID: 978773649}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -3096,6 +3097,18 @@ MonoBehaviour:
   attackPower: 25
   cooldown: 3
   criticalChance: 35
+--- !u!114 &978773649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978773640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &982925040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3920,6 +3933,8 @@ GameObject:
   - component: {fileID: 1414541895}
   - component: {fileID: 1414541894}
   - component: {fileID: 1414541898}
+  - component: {fileID: 1414541899}
+  - component: {fileID: 1414541900}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Player
@@ -4074,6 +4089,30 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1414541899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414541891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1414541900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414541891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1427718981
 GameObject:
   m_ObjectHideFlags: 0
@@ -5380,6 +5419,7 @@ GameObject:
   - component: {fileID: 1956149359}
   - component: {fileID: 1956149363}
   - component: {fileID: 1956149364}
+  - component: {fileID: 1956149365}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -5549,6 +5589,18 @@ MonoBehaviour:
   attackPower: 35
   cooldown: 1
   criticalChance: 20
+--- !u!114 &1956149365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956149356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1987781222
 GameObject:
   m_ObjectHideFlags: 0
@@ -5857,6 +5909,7 @@ GameObject:
   - component: {fileID: 2138644055}
   - component: {fileID: 2138644059}
   - component: {fileID: 2138644060}
+  - component: {fileID: 2138644061}
   m_Layer: 0
   m_Name: Thieves
   m_TagString: Player
@@ -6026,6 +6079,18 @@ MonoBehaviour:
   attackPower: 15
   cooldown: 2
   criticalChance: 50
+--- !u!114 &2138644061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138644052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2143462601
 GameObject:
   m_ObjectHideFlags: 0
