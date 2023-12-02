@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,46 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -976,50 +1020,49 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      goblin idle_6: -1778249829
-      goblin idle_28: 2067212961
       goblin idle_0: 2055959563
-      goblin idle_18: -766867263
-      goblin idle_14: -1133720889
-      goblin idle_30: 993044649
-      goblin idle_9: -477913501
-      goblin idle_34: -1415726826
-      goblin idle_5: 1864376871
-      goblin idle_7: 1978942648
       goblin idle_1: 491845889
-      goblin idle_13: 213802127
-      goblin idle_33: 1167163856
-      goblin idle_15: -404924379
-      goblin idle_32: -126548354
-      goblin idle_23: 710620914
-      goblin idle_4: 697529804
-      goblin idle_22: -370990774
-      goblin idle_3: -411359101
-      goblin idle_8: 880310100
-      goblin idle_35: 1834857231
-      goblin idle_16: -1740575298
+      goblin idle_10: -509071509
+      goblin idle_11: -450444087
       goblin idle_12: -1591954873
-      goblin idle_25: -94500438
-      goblin idle_39: -643729024
-      goblin idle_40: -2077929427
+      goblin idle_13: 213802127
+      goblin idle_14: -1133720889
+      goblin idle_15: -404924379
+      goblin idle_16: -1740575298
+      goblin idle_17: -1889796317
+      goblin idle_18: -766867263
+      goblin idle_19: -28980146
       goblin idle_2: -208405878
       goblin idle_20: 818200272
-      goblin idle_26: -998958117
-      goblin idle_36: -1550518154
-      goblin idle_11: -450444087
-      goblin idle_24: 2059898201
-      goblin idle_29: -833271138
-      goblin idle_31: -664691346
-      goblin idle_27: -1651251738
-      goblin idle_38: 482239024
       goblin idle_21: -1270540785
-      goblin idle_19: -28980146
+      goblin idle_22: -370990774
+      goblin idle_23: 710620914
+      goblin idle_24: 2059898201
+      goblin idle_25: -94500438
+      goblin idle_26: -998958117
+      goblin idle_27: -1651251738
+      goblin idle_28: 2067212961
+      goblin idle_29: -833271138
+      goblin idle_3: -411359101
+      goblin idle_30: 993044649
+      goblin idle_31: -664691346
+      goblin idle_32: -126548354
+      goblin idle_33: 1167163856
+      goblin idle_34: -1415726826
+      goblin idle_35: 1834857231
+      goblin idle_36: -1550518154
       goblin idle_37: -960121777
-      goblin idle_10: -509071509
-      goblin idle_17: -1889796317
-  spritePackingTag: 
+      goblin idle_38: 482239024
+      goblin idle_39: -643729024
+      goblin idle_4: 697529804
+      goblin idle_40: -2077929427
+      goblin idle_5: 1864376871
+      goblin idle_6: -1778249829
+      goblin idle_7: 1978942648
+      goblin idle_8: 880310100
+      goblin idle_9: -477913501
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
