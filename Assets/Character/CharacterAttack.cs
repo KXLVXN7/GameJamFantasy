@@ -5,6 +5,8 @@ public class CharacterAttack : MonoBehaviour
     public float attackPower;
     public float cooldown;
     public float criticalChance;
+    public float attackRange;
+    public LayerMask enemyLayer;
 
     private float lastAttackTime;
 
@@ -15,40 +17,39 @@ public class CharacterAttack : MonoBehaviour
 
     private void Update()
     {
-        // For testing purposes, you can call Attack() when a certain input (e.g., mouse click) is detected.
+        // For testing purposes, you can call PerformAttack() when a certain input (e.g., mouse click) is detected.
         if (Input.GetMouseButtonDown(0))
         {
             PerformAttack();
         }
     }
 
-    private void PerformAttack()
+    public void PerformAttack()
     {
         if (Time.time - lastAttackTime > cooldown)
         {
             lastAttackTime = Time.time;
 
-            // Raycast to detect enemies
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
 
-            if (Physics.Raycast(ray, out hit))
+            if (hitColliders.Length > 0)
             {
+                // Choose a random enemy from the detected enemies
+                Collider randomEnemyCollider = hitColliders[Random.Range(0, hitColliders.Length)];
+
                 // Check if the hit object has the EnemyHealth component
-                EnemyHealth enemyHealthComponent = hit.collider.GetComponent<EnemyHealth>();
+                EnemyHealth enemyHealthComponent = randomEnemyCollider.GetComponent<EnemyHealth>();
                 if (enemyHealthComponent != null)
                 {
                     float damage = CalculateDamage();
                     bool isCritical = IsCriticalHit();
 
-                    // Call the takeDamageEnemy function on the EnemyHealth component
-                    enemyHealthComponent.takeDamageEnemy(damage);
+                    // Call the TakeDamageEnemy function on the EnemyHealth component
+                    enemyHealthComponent.TakeDamageEnemy(damage, isCritical);
                 }
             }
         }
     }
-    
-
 
     private float CalculateDamage()
     {

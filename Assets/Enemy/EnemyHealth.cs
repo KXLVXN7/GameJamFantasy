@@ -11,14 +11,19 @@ public class EnemyHealth : MonoBehaviour
         currHealthEnemy = maxHpEnemy;
     }
 
-    public void takeDamageEnemy(float damage)
+    public void TakeDamageEnemy(float damage, bool isCritical = false)
     {
         if (!isDead)
         {
+            if (isCritical)
+            {
+                damage *= 2.0f; // Double the damage for critical hits
+            }
+
             currHealthEnemy -= damage;
             currHealthEnemy = Mathf.Clamp(currHealthEnemy, 0, maxHpEnemy);
             UpdateHealthBar();
-            /*StartCoroutine(VisualIndicator(Color.red));*/
+
             if (currHealthEnemy <= 0)
             {
                 Die();
@@ -30,13 +35,6 @@ public class EnemyHealth : MonoBehaviour
     {
         // Implement logic to update health bar UI
     }
-
-/*    private IEnumerator VisualIndicator(Color color)
-    {
-        GetComponent<SpriteRenderer>().color = color;
-        yield return new WaitForSeconds(0.35f);
-        GetComponent<SpriteRenderer>().color = Color.white;
-    }*/
 
     private void Die()
     {
