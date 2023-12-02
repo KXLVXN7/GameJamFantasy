@@ -13,17 +13,19 @@ public class EnemyAttackable : Attackable
 
     public void EnemyAIAttack()
     {
-        // Check if it's the enemy's turn before allowing the attack
+        Debug.Log("EnemyAIAttack called.");
+
         if (isEnemyTurn)
         {
-            // Implement AI logic for enemy attacks here
-            // For simplicity, let's assume the enemy attacks the player every time EnemyAIAttack is called
             AttackCharacter();
 
             // Optionally, you can add effects or animations for the enemy attack
             // ...
 
             Debug.Log("Enemy attacks the player!");
+
+            // After attacking, reset the turn flag
+            isEnemyTurn = false;
         }
         else
         {
@@ -31,33 +33,39 @@ public class EnemyAttackable : Attackable
         }
     }
 
+
     // Function to set the turn flag when it's the enemy's turn
     public void SetEnemyTurn()
     {
         isEnemyTurn = true;
-    }
+/*        Debug.Log($"{entityInfo.name}'s turn has started!");
+*/    }
 
     private void AttackCharacter()
     {
-        // Check if there is a character to attack
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        if (isEnemyTurn)
         {
-            // Get the Attackable component from the character
-            CharacterHealth characterHealth = player.GetComponent<CharacterHealth>();
-            if (characterHealth != null)
+            // Check if there is a character to attack
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
             {
-                // Perform the attack on the character
-                characterHealth.TakeDamageCharacter(enemyAttackPower);
+                // Get the Attackable component from the character
+                CharacterHealth characterHealth = player.GetComponent<CharacterHealth>();
+                if (characterHealth != null)
+                {
+                    // Perform the attack on the character
+                    characterHealth.TakeDamageCharacter(enemyAttackPower);
+                }
+                else
+                {
+                    Debug.LogWarning("Player is missing Attackable component.");
+                }
             }
             else
             {
-                Debug.LogWarning("Player is missing Attackable component.");
+                Debug.LogWarning("Player not found.");
             }
         }
-        else
-        {
-            Debug.LogWarning("Player not found.");
-        }
     }
+
 }
