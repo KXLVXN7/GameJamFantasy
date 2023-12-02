@@ -1034,17 +1034,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401198833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 527512697}
-  m_Father: {fileID: 557581173}
+  m_Father: {fileID: 1913414880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 955.16, y: 538.66}
+  m_AnchoredPosition: {x: 960.0001, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &401198835
@@ -1328,7 +1328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491360100}
   m_Layer: 5
-  m_Name: Mage
+  m_Name: MageSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1774,7 +1774,7 @@ GameObject:
   - component: {fileID: 557581178}
   - component: {fileID: 557581177}
   m_Layer: 0
-  m_Name: Enemy2
+  m_Name: EnemyGoblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1789,12 +1789,11 @@ Transform:
   m_GameObject: {fileID: 557581172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4.84, y: 1.34, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9318973, y: 1.8073828, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 401198834}
+  m_Children: []
   m_Father: {fileID: 1913414880}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &557581174
 Rigidbody2D:
@@ -1830,18 +1829,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.007977009, y: -0.007977009}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.44, y: 0.53}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.47351646, y: 0.5692408}
   m_EdgeRadius: 0
 --- !u!212 &557581176
 SpriteRenderer:
@@ -1884,9 +1883,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 2055959563, guid: ccfafd4b5d3bc8c4fbf722f9964e06de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -2403,7 +2402,7 @@ Transform:
   m_Children:
   - {fileID: 257405735}
   m_Father: {fileID: 1913414880}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &896066980
 Rigidbody2D:
@@ -3119,7 +3118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 982925041}
   m_Layer: 5
-  m_Name: Healer
+  m_Name: HealerSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3615,7 +3614,7 @@ Transform:
   m_Children:
   - {fileID: 1793669116}
   m_Father: {fileID: 1913414880}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1159644879
 Rigidbody2D:
@@ -3934,7 +3933,6 @@ GameObject:
   - component: {fileID: 1414541894}
   - component: {fileID: 1414541898}
   - component: {fileID: 1414541899}
-  - component: {fileID: 1414541900}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Player
@@ -4101,18 +4099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1414541900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414541891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35fed42b86408ed4b84c7ff552d74b89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1427718981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427718982}
   m_Layer: 5
-  m_Name: Thieves
+  m_Name: ThievesSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4162,7 +4148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427861537}
   m_Layer: 5
-  m_Name: Knight
+  m_Name: KnightSkills
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4359,7 +4345,7 @@ Transform:
   m_Children:
   - {fileID: 1237172613}
   m_Father: {fileID: 1913414880}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1628449933
 Rigidbody2D:
@@ -5264,6 +5250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 401198834}
   - {fileID: 896066979}
   - {fileID: 557581173}
   - {fileID: 1628449932}

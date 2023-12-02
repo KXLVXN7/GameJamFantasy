@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,868 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: goblin idle_0
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1919
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49013d065e5743c4b8a9b0285a4b5e23
+      internalID: 2055959563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_1
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 1919
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 438b4316b3c72c14b916ad929625522c
+      internalID: 491845889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_2
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 1919
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90e5f648518ed1a47a15d36e119372f1
+      internalID: -208405878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_3
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1919
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab102fdcd18a19e428a56311e2c6a1f7
+      internalID: -411359101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_4
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 1919
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb414457b7854049a0016fce3c5c2f5
+      internalID: 697529804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_5
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 1919
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59574b65ae85854eae5f4886068cfad
+      internalID: 1864376871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_6
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 1919
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20130d81d1bb174b8cf300f21269439
+      internalID: -1778249829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_7
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1919
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a133809fd0b3394aadd9e2d85fd028c
+      internalID: 1978942648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_8
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1663
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03b7764ea0b648f42a7345cb40821960
+      internalID: 880310100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_9
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 1663
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e367c1e3001bcf498f368355dfd77c0
+      internalID: -477913501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_10
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1663
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31816ff3034f1b742afa42a1e8d6072a
+      internalID: -509071509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_11
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 1663
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4898273251e27564dbb3bacc91754867
+      internalID: -450444087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_12
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 1663
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61c7047568ebd8f4e85287969fbaa015
+      internalID: -1591954873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_13
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1663
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a895f137f194f3458c3eb0c3fa21ae7
+      internalID: 213802127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_14
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1663
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a57c45af9ec2f42a1fc2b0e0b37e75
+      internalID: -1133720889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_15
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1663
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67a4260b070ff984cb1df8b472f365ed
+      internalID: -404924379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e96671e78b558fb4d9793d2e1cf123ad
+      internalID: -1740575298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_17
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e4df92db025d94892dfb909143f82a
+      internalID: -1889796317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_18
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbacaf57b94ae544bb6278a12a75b37d
+      internalID: -766867263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_19
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 1406
+        width: 51
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cec0aad3dfd8c8e4a8c7964e59377ec2
+      internalID: -28980146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_20
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f68916ae1fb3841a533e22b99b7748
+      internalID: 818200272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_21
+      rect:
+        serializedVersion: 2
+        x: 1388
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592cfcecfe701c54dad4a2fb04094b0b
+      internalID: -1270540785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_22
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 1406
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 954594e0e70468341b86c63dcf020495
+      internalID: -370990774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_23
+      rect:
+        serializedVersion: 2
+        x: 1900
+        y: 1407
+        width: 49
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0c5804e5c3ee147b370e14d7848514
+      internalID: 710620914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_24
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1151
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d279c47e86259474393a1505f7db9ef6
+      internalID: 2059898201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_25
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 1151
+        width: 50
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5638795c0904e24088eb8b9d974d4aa
+      internalID: -94500438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_26
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 1151
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f93be18465b92e46b9ed7decca3f5ca
+      internalID: -998958117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_27
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 1151
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4976e18735116b4b84c6176f8436e3f
+      internalID: -1651251738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_28
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 1151
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79376b5c3a39d943beaa924c88f1d6a
+      internalID: 2067212961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_29
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1151
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559461b01c5d52a459f70139f9b74ef1
+      internalID: -833271138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_30
+      rect:
+        serializedVersion: 2
+        x: 1643
+        y: 1151
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 485db03ada660d84c96eb03eca994e17
+      internalID: 993044649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_31
+      rect:
+        serializedVersion: 2
+        x: 1899
+        y: 1151
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053dfcd9f3406cd43b129bebe7b9a3ea
+      internalID: -664691346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_32
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 895
+        width: 48
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30168f829a8ea2342b6b7f2fa440934b
+      internalID: -126548354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_33
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 895
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2035120d16c43b429ec2d84dfc68392
+      internalID: 1167163856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_34
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 895
+        width: 47
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fdefd1c216b30c44a161280d8ba7bef
+      internalID: -1415726826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_35
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 895
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa15aa0812ded3541a13312903c20364
+      internalID: 1834857231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_36
+      rect:
+        serializedVersion: 2
+        x: 1130
+        y: 895
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9049744e9e9c12743ac2019057cf4557
+      internalID: -1550518154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_37
+      rect:
+        serializedVersion: 2
+        x: 1386
+        y: 895
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef000e7642f12b458f2141f25e19d86
+      internalID: -960121777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_38
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 895
+        width: 45
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389629771d12079409d1f3ce62efadd0
+      internalID: 482239024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_39
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 895
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d28929d5858d04c915a9f26007014f
+      internalID: -643729024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin idle_40
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 639
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382288dc82e72cd41993eed57883ecf9
+      internalID: -2077929427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +975,48 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goblin idle_6: -1778249829
+      goblin idle_28: 2067212961
+      goblin idle_0: 2055959563
+      goblin idle_18: -766867263
+      goblin idle_14: -1133720889
+      goblin idle_30: 993044649
+      goblin idle_9: -477913501
+      goblin idle_34: -1415726826
+      goblin idle_5: 1864376871
+      goblin idle_7: 1978942648
+      goblin idle_1: 491845889
+      goblin idle_13: 213802127
+      goblin idle_33: 1167163856
+      goblin idle_15: -404924379
+      goblin idle_32: -126548354
+      goblin idle_23: 710620914
+      goblin idle_4: 697529804
+      goblin idle_22: -370990774
+      goblin idle_3: -411359101
+      goblin idle_8: 880310100
+      goblin idle_35: 1834857231
+      goblin idle_16: -1740575298
+      goblin idle_12: -1591954873
+      goblin idle_25: -94500438
+      goblin idle_39: -643729024
+      goblin idle_40: -2077929427
+      goblin idle_2: -208405878
+      goblin idle_20: 818200272
+      goblin idle_26: -998958117
+      goblin idle_36: -1550518154
+      goblin idle_11: -450444087
+      goblin idle_24: 2059898201
+      goblin idle_29: -833271138
+      goblin idle_31: -664691346
+      goblin idle_27: -1651251738
+      goblin idle_38: 482239024
+      goblin idle_21: -1270540785
+      goblin idle_19: -28980146
+      goblin idle_37: -960121777
+      goblin idle_10: -509071509
+      goblin idle_17: -1889796317
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
