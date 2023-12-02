@@ -6,18 +6,18 @@ public class CharacterAttack : MonoBehaviour
     public float cooldown;
     public float criticalChance;
     public float attackRange;
-    public LayerMask enemyLayer;
+    public string enemyTag; // Tag musuh yang akan diserang
 
     private float lastAttackTime;
 
     private void Start()
     {
-        lastAttackTime = -cooldown; // Set initial value to allow immediate attack
+        lastAttackTime = -cooldown; // Set nilai awal untuk memungkinkan serangan langsung
     }
 
     private void Update()
     {
-        // For testing purposes, you can call PerformAttack() when a certain input (e.g., mouse click) is detected.
+        // Untuk tujuan pengujian, Anda dapat memanggil PerformAttack() ketika suatu input tertentu (misalnya, klik mouse) terdeteksi.
         if (Input.GetMouseButtonDown(0))
         {
             PerformAttack();
@@ -30,22 +30,22 @@ public class CharacterAttack : MonoBehaviour
         {
             lastAttackTime = Time.time;
 
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, enemyLayer);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
 
-            if (hitColliders.Length > 0)
+            foreach (var hitCollider in hitColliders)
             {
-                // Choose a random enemy from the detected enemies
-                Collider randomEnemyCollider = hitColliders[Random.Range(0, hitColliders.Length)];
-
-                // Check if the hit object has the EnemyHealth component
-                EnemyHealth enemyHealthComponent = randomEnemyCollider.GetComponent<EnemyHealth>();
-                if (enemyHealthComponent != null)
+                // Cek apakah objek yang terkena memiliki komponen EnemyHealth dan tag yang sesuai
+                if (hitCollider.CompareTag(enemyTag))
                 {
-                    float damage = CalculateDamage();
-                    bool isCritical = IsCriticalHit();
+                    EnemyHealth enemyHealthComponent = hitCollider.GetComponent<EnemyHealth>();
+                    if (enemyHealthComponent != null)
+                    {
+                        float damage = CalculateDamage();
+                        bool isCritical = IsCriticalHit();
 
-                    // Call the TakeDamageEnemy function on the EnemyHealth component
-                    enemyHealthComponent.TakeDamageEnemy(damage, isCritical);
+                        // Panggil fungsi TakeDamageEnemy pada komponen EnemyHealth
+                        enemyHealthComponent.TakeDamageEnemy(damage, isCritical);
+                    }
                 }
             }
         }
@@ -53,13 +53,13 @@ public class CharacterAttack : MonoBehaviour
 
     private float CalculateDamage()
     {
-        // You can implement a more sophisticated damage calculation based on attackPower, etc.
+        // Anda dapat mengimplementasikan perhitungan kerusakan yang lebih canggih berdasarkan attackPower, dll.
         return attackPower;
     }
 
     private bool IsCriticalHit()
     {
-        // Check if the attack results in a critical hit based on criticalChance
+        // Periksa apakah serangan menghasilkan pukulan kritis berdasarkan criticalChance
         float randomValue = Random.value;
         return randomValue < criticalChance;
     }
