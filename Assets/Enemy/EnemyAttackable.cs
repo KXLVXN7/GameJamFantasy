@@ -9,7 +9,8 @@ public class EnemyAttackable : Attackable
     private GameManager gameManager; // Reference to the GameManager
     private bool isEnemyTurn = false; // Flag to check if it's the enemy's turn
 
-    public bool IsEnemyTurn => isEnemyTurn; // Property to check if it's the enemy's turn
+    // Property to check if it's the enemy's turn
+    public bool IsEnemyTurn => isEnemyTurn;
 
     private void Start()
     {
