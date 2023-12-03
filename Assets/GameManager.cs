@@ -28,23 +28,11 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        List<Entity> allEntities = characters.Concat(enemies).OrderByDescending(entity => entity.power).ToList();
+        // Concatenate characters and enemies, then order them by power in descending order
+        sortedEntities = characters.Concat(enemies).OrderByDescending(entity => entity.power).ToList();
 
-        sortedEntities = allEntities.ToList();
-
-        foreach (Entity entity in sortedEntities)
-        {
-            HandleEntityTurn(entity);
-        }
-
-        Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
-
-        foreach (Entity entity in sortedEntities.Skip(1).Where(characters.Contains))
-        {
-            ActivateUI(entity.uiElement, false);
-        }
-
-        SetTurnForCurrentEntity();
+        // Handle the turn for the first entity
+        HandleEntityTurn(sortedEntities.First());
     }
 
     void HandleEntityTurn(Entity entity)
@@ -84,15 +72,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void SetTurnForCurrentEntity()
-    {
-        Entity currentEntity = sortedEntities[currentEntityIndex];
-        if (enemies.Contains(currentEntity) && currentEntity.attackableComponent is EnemyAttackable enemyAttackable)
-        {
-            enemyAttackable.SetEnemyTurn();
-        }
-    }
-
     public void AdvanceToNextLowestPowerEntity()
     {
         if (sortedEntities == null || sortedEntities.Count == 0)
@@ -114,23 +93,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Adjust the delay as needed
 
-        ActivateUI(nextEntity.uiElement, true);
-        Debug.Log($"Next entity with highest power: {nextEntity.name}");
-
-        if (characters.Contains(nextEntity))
-        {
-            HandleCharacterTurn(nextEntity);
-        }
-        else if (enemies.Contains(nextEntity) && nextEntity.attackableComponent is EnemyAttackable enemyAttackable)
-        {
-            enemyAttackable.SetEnemyTurn();
-            enemyAttackable.EnemyAIAttack();
-
-            if (characters.Contains(nextEntity))
-            {
-                ShowCharacterUITurn(nextEntity.uiElement);
-            }
-        }
+        HandleEntityTurn(nextEntity);
     }
 
     void ShowCharacterUITurn(GameObject uiElement)
