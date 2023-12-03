@@ -28,62 +28,68 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        List<Entity> allEntities = new List<Entity>(characters);
-        allEntities.AddRange(enemies);
+        List<Entity> allEntities = characters.Concat(enemies).OrderByDescending(entity => entity.power).ToList();
 
-        sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
+        sortedEntities = allEntities.ToList();
 
         foreach (Entity entity in sortedEntities)
         {
-            GameObject entityObject = entity.gameObject;
-
-            bool isActiveUI = entity == sortedEntities.First();
-            ActivateUI(entity.uiElement, isActiveUI);
-
-            if (characters.Contains(entity))
-            {
-                // Character's turn
-                if (entity.attackableComponent != null)
-                {
-                    entity.attackableComponent.StartCharacterTurn();
-                }
-            }
-            else
-            {
-                // Enemy's turn
-                if (entity.attackableComponent != null && entity.attackableComponent is EnemyAttackable)
-                {
-                    ((EnemyAttackable)entity.attackableComponent).EnemyAIAttack();
-                }
-            }
-
-            entityObject.AddComponent<ClickHandler>();
-            Attackable attackableComponent = entityObject.GetComponent<Attackable>();
-            if (attackableComponent != null)
-            {
-                attackableComponent.Attack();
-            }
+            HandleEntityTurn(entity);
         }
 
         Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
 
-        foreach (Entity entity in sortedEntities.Skip(1))
+        foreach (Entity entity in sortedEntities.Skip(1).Where(characters.Contains))
         {
-            if (characters.Contains(entity))
-            {
-                ActivateUI(entity.uiElement, false);
-            }
+            ActivateUI(entity.uiElement, false);
         }
 
         SetTurnForCurrentEntity();
     }
 
+    void HandleEntityTurn(Entity entity)
+    {
+        GameObject entityObject = entity.gameObject;
+        bool isActiveUI = entity == sortedEntities.First();
+        ActivateUI(entity.uiElement, isActiveUI);
+
+        if (characters.Contains(entity))
+        {
+            HandleCharacterTurn(entity);
+        }
+        else if (entity.attackableComponent is EnemyAttackable enemyAttackable)
+        {
+            if (enemyAttackable.IsEnemyTurn)
+            {
+                HandleEnemyTurn(entity, enemyAttackable);
+            }
+        }
+
+        entityObject.AddComponent<ClickHandler>();
+        entityObject.GetComponent<Attackable>()?.Attack();
+    }
+
+    void HandleCharacterTurn(Entity entity)
+    {
+        entity.attackableComponent?.StartCharacterTurn();
+    }
+
+    void HandleEnemyTurn(Entity entity, EnemyAttackable enemyAttackable)
+    {
+        if (entity.attackableComponent != null)
+        {
+            enemyAttackable.SetEnemyTurn();
+            enemyAttackable.OnEnemyTurnCompleted += AdvanceToNextLowestPowerEntity;
+            enemyAttackable.EnemyAIAttack();
+        }
+    }
+
     void SetTurnForCurrentEntity()
     {
         Entity currentEntity = sortedEntities[currentEntityIndex];
-        if (enemies.Contains(currentEntity) && currentEntity.attackableComponent is EnemyAttackable)
+        if (enemies.Contains(currentEntity) && currentEntity.attackableComponent is EnemyAttackable enemyAttackable)
         {
-            ((EnemyAttackable)currentEntity.attackableComponent).SetEnemyTurn();
+            enemyAttackable.SetEnemyTurn();
         }
     }
 
@@ -113,14 +119,10 @@ public class GameManager : MonoBehaviour
 
         if (characters.Contains(nextEntity))
         {
-            if (nextEntity.attackableComponent != null)
-            {
-                nextEntity.attackableComponent.StartCharacterTurn();
-            }
+            HandleCharacterTurn(nextEntity);
         }
-        else if (enemies.Contains(nextEntity) && nextEntity.attackableComponent is EnemyAttackable)
+        else if (enemies.Contains(nextEntity) && nextEntity.attackableComponent is EnemyAttackable enemyAttackable)
         {
-            EnemyAttackable enemyAttackable = (EnemyAttackable)nextEntity.attackableComponent;
             enemyAttackable.SetEnemyTurn();
             enemyAttackable.EnemyAIAttack();
 
@@ -138,9 +140,6 @@ public class GameManager : MonoBehaviour
 
     void ActivateUI(GameObject uiElement, bool isActive)
     {
-        if (uiElement != null)
-        {
-            uiElement.SetActive(isActive);
-        }
+        uiElement?.SetActive(isActive);
     }
 }

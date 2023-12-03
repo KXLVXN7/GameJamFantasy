@@ -2,27 +2,43 @@ using UnityEngine;
 
 public class EnemyAttackable : Attackable
 {
+    public delegate void EnemyTurnCompletedDelegate();
+    public event EnemyTurnCompletedDelegate OnEnemyTurnCompleted;
+
     public float enemyAttackPower = 10f; // Adjust the attack power as needed
     private GameManager gameManager; // Reference to the GameManager
     private bool isEnemyTurn = false; // Flag to check if it's the enemy's turn
+
+    public bool IsEnemyTurn => isEnemyTurn; // Property to check if it's the enemy's turn
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>(); // Find the GameManager in the scene
     }
 
+    // Function to set the turn flag when it's the enemy's turn
+    public void SetEnemyTurn()
+    {
+        isEnemyTurn = true;
+        // Optionally, you can add log or notification when the enemy's turn starts
+        // Debug.Log($"{entityInfo.name}'s turn has started!");
+    }
+
     public void EnemyAIAttack()
     {
-        Debug.Log("EnemyAIAttack called.");
-
         if (isEnemyTurn)
         {
+            Debug.Log("EnemyAIAttack called.");
+
             AttackCharacter();
 
             // Optionally, you can add effects or animations for the enemy attack
             // ...
 
             Debug.Log("Enemy attacks the player!");
+
+            // After attacking, raise the event to signal the completion of the enemy's turn
+            OnEnemyTurnCompleted?.Invoke();
 
             // After attacking, reset the turn flag
             isEnemyTurn = false;
@@ -33,23 +49,13 @@ public class EnemyAttackable : Attackable
         }
     }
 
-
-    // Function to set the turn flag when it's the enemy's turn
-    public void SetEnemyTurn()
-    {
-        isEnemyTurn = true;
-/*        Debug.Log($"{entityInfo.name}'s turn has started!");
-*/    }
-
     private void AttackCharacter()
     {
         if (isEnemyTurn)
         {
-            // Check if there is a character to attack
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
-                // Get the Attackable component from the character
                 CharacterHealth characterHealth = player.GetComponent<CharacterHealth>();
                 if (characterHealth != null)
                 {
@@ -58,7 +64,7 @@ public class EnemyAttackable : Attackable
                 }
                 else
                 {
-                    Debug.LogWarning("Player is missing Attackable component.");
+                    Debug.LogWarning("Player is missing CharacterHealth component.");
                 }
             }
             else
@@ -67,5 +73,4 @@ public class EnemyAttackable : Attackable
             }
         }
     }
-
 }

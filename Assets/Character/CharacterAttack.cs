@@ -34,7 +34,7 @@ public class CharacterAttack : MonoBehaviour
 
             foreach (var hitCollider in hitColliders)
             {
-                // Cek apakah objek yang terkena memiliki komponen EnemyHealth dan tag yang sesuai
+                // Cek apakah objek yang terk   ena memiliki komponen EnemyHealth dan tag yang sesuai
                 if (hitCollider.CompareTag(enemyTag))
                 {
                     EnemyHealth enemyHealthComponent = hitCollider.GetComponent<EnemyHealth>();
