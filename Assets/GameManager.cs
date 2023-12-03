@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
         {
             enemyAttackable.SetEnemyTurn();
             enemyAttackable.OnEnemyTurnCompleted += AdvanceToNextLowestPowerEntity;
+
+            Debug.Log($"Enemy {entity.name} is attacking!");
+
             enemyAttackable.EnemyAIAttack();
         }
     }
