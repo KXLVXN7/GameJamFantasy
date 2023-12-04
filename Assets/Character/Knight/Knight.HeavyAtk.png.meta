@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -33,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,11 +103,891 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_0
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1918
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a74c525a4ee6d345a844d71a52d2631
+      internalID: -577906852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_1
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1918
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f73792b97ad2be43ad1fb8b02444e38
+      internalID: -233853085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_2
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 1918
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ee26e3ec8634ec4084ca04481807dbc
+      internalID: -1414739714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_3
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1918
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc895c3059b7994f84fd8fe6f6c7c30
+      internalID: 513756192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_4
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 1918
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df991fda22843394fb0430fe39008d89
+      internalID: -2001652845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_5
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 1918
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca9d455d697d5c489f57eb2ae929117
+      internalID: 1822585598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_6
+      rect:
+        serializedVersion: 2
+        x: 1642
+        y: 1918
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a411e51563a226c44a5d26f279713b2a
+      internalID: -1009448873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_7
+      rect:
+        serializedVersion: 2
+        x: 1898
+        y: 1918
+        width: 47
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c30e7fa127f834bb8d7b0c66b9833a
+      internalID: 369422603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_8
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 1662
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ed3353e461f5b43b2142d6b6c9d562
+      internalID: -518293180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_9
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1662
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb7af44dc9a8014d9e9be970c8d4256
+      internalID: 1563930725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_10
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 1662
+        width: 50
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93885e1aee836d44486a8c7571015f89
+      internalID: -519547368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_11
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 1662
+        width: 50
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1106050ea859394a977845817ed2053
+      internalID: -91041142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_12
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1662
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff74343ec4aa3474785d905ea96d69da
+      internalID: 1568050750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_13
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1661
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d157815a48a2cd419a670871cf057d9
+      internalID: -530917901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_14
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1661
+        width: 59
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c8b622628a8bc849abc43c1cc7e77d0
+      internalID: -1865821487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_15
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1661
+        width: 65
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4e72b43dca3b1845b7e73c8f61c3de0
+      internalID: -567605593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_16
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae06dd11928077b47ad31a38e89ac2f3
+      internalID: 337649606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_17
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd3aac7b827507c4aa996fe68f078fe1
+      internalID: 1692344830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_18
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e3e99c4119ce343b22e0ad4fdd0b09
+      internalID: -1675674252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_19
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c7a55e1ce87c574292383093f26d824
+      internalID: -961095670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_20
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ff88d69e5a1f1448a2a00d301c5dc0
+      internalID: 692364586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_21
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 1405
+        width: 70
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f427cf96a6b8614478d13df494b5fce6
+      internalID: -1041901085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_22
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1405
+        width: 68
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a973708f2682abb4eaf87048f0fe0a12
+      internalID: -855055159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_23
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1405
+        width: 66
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb2ea51a983444e489b11e73d9c81629
+      internalID: 1288867362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_24
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1149
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0101c7a596cf6c4489cc002ffb36ed07
+      internalID: -1931627418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_25
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 1149
+        width: 59
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7229f4d732d247649bd56f8effbeff07
+      internalID: -953874766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_26
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 1149
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a31e4d10a6aabb4f9346c1dc115a2c2
+      internalID: 995449103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_27
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 1149
+        width: 50
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 909c6888e5d6cba4ab91d67c81d6102e
+      internalID: 191837449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_28
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 1149
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc0e6da0f7d3964391d9b24298fe6bd
+      internalID: -1392890177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_29
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 1149
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1891bc1812523b42806d6db52056982
+      internalID: -147653109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_30
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1149
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c3ff2f1f1fbff45ab321fb8b533618
+      internalID: -1269101453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_31
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 1150
+        width: 42
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d931cd2fc4570a5439d6364b3e2553c4
+      internalID: 679424473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_32
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 894
+        width: 42
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81cae531213adfd42869da1b8dd25ed3
+      internalID: -448131848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_33
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 894
+        width: 44
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73fc9a6b2ff9dd4cabc0eeac7ae77d1
+      internalID: -1671856840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_34
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 894
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8344fe280e4b9c34baa5a816abd7c5cb
+      internalID: -913891859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_35
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 894
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edf36dc3f5217344181d17d9573c5dcb
+      internalID: -1761699839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_36
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 894
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada133ceb6213504e84e1a8b7c08effe
+      internalID: -1268532376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_37
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 894
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c49c8797a8fcd40a8bf8ba884ef157
+      internalID: -1867561612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_38
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 894
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37c4e073b54e544c98bde7b681ba16d
+      internalID: -1493006875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Knight.HeavyAtk_39
+      rect:
+        serializedVersion: 2
+        x: 1906
+        y: 894
+        width: 43
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c66f043701fcb043be529ff8b4cb77a
+      internalID: 281383848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,10 +998,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
-  spritePackingTag: 
+    nameFileIdTable:
+      Knight.HeavyAtk_0: -577906852
+      Knight.HeavyAtk_1: -233853085
+      Knight.HeavyAtk_10: -519547368
+      Knight.HeavyAtk_11: -91041142
+      Knight.HeavyAtk_12: 1568050750
+      Knight.HeavyAtk_13: -530917901
+      Knight.HeavyAtk_14: -1865821487
+      Knight.HeavyAtk_15: -567605593
+      Knight.HeavyAtk_16: 337649606
+      Knight.HeavyAtk_17: 1692344830
+      Knight.HeavyAtk_18: -1675674252
+      Knight.HeavyAtk_19: -961095670
+      Knight.HeavyAtk_2: -1414739714
+      Knight.HeavyAtk_20: 692364586
+      Knight.HeavyAtk_21: -1041901085
+      Knight.HeavyAtk_22: -855055159
+      Knight.HeavyAtk_23: 1288867362
+      Knight.HeavyAtk_24: -1931627418
+      Knight.HeavyAtk_25: -953874766
+      Knight.HeavyAtk_26: 995449103
+      Knight.HeavyAtk_27: 191837449
+      Knight.HeavyAtk_28: -1392890177
+      Knight.HeavyAtk_29: -147653109
+      Knight.HeavyAtk_3: 513756192
+      Knight.HeavyAtk_30: -1269101453
+      Knight.HeavyAtk_31: 679424473
+      Knight.HeavyAtk_32: -448131848
+      Knight.HeavyAtk_33: -1671856840
+      Knight.HeavyAtk_34: -913891859
+      Knight.HeavyAtk_35: -1761699839
+      Knight.HeavyAtk_36: -1268532376
+      Knight.HeavyAtk_37: -1867561612
+      Knight.HeavyAtk_38: -1493006875
+      Knight.HeavyAtk_39: 281383848
+      Knight.HeavyAtk_4: -2001652845
+      Knight.HeavyAtk_5: 1822585598
+      Knight.HeavyAtk_6: -1009448873
+      Knight.HeavyAtk_7: 369422603
+      Knight.HeavyAtk_8: -518293180
+      Knight.HeavyAtk_9: 1563930725
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
