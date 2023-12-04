@@ -28,8 +28,10 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        // Sort characters and enemies by power in descending order
-        sortedEntities = characters.Concat(enemies).OrderByDescending(entity => entity == characters[0] ? int.MinValue : entity.power).ToList();
+        // Separate sorting for characters and enemies
+        sortedEntities = characters.OrderByDescending(entity => entity == characters[0] ? int.MinValue : entity.power)
+                         .Concat(enemies.OrderByDescending(entity => entity.power))
+                         .ToList();
         Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
         // Handle the turn for the first entity
         HandleEntityTurn(sortedEntities.First());
@@ -40,9 +42,9 @@ public class GameManager : MonoBehaviour
         GameObject entityObject = entity.gameObject;
         bool isActiveUI = entity == sortedEntities.First();
 
-        // Tambahkan pengecualian untuk knight
         if (characters.Contains(entity) && entity != characters[0])
         {
+            ShowCharacterUITurn(entity.uiElement);
             ActivateUI(entity.uiElement, isActiveUI);
         }
         else if (entity.attackableComponent != null)
@@ -56,8 +58,15 @@ public class GameManager : MonoBehaviour
 
     void HandleEnemyTurn(Entity entity, Attackable attackableComponent)
     {
-        attackableComponent.OnAttackCompleted += AdvanceToNextLowestPowerEntity;
-        attackableComponent.Attack();
+        // Simulate enemy attack on a random character (adjust as needed)
+        int randomCharacterIndex = Random.Range(0, characters.Count);
+        Entity targetCharacter = characters[randomCharacterIndex];
+
+        Debug.Log($"{entity.name} attacks {targetCharacter.name}");
+
+        // TODO: Implement the logic for enemy attack
+
+        AdvanceToNextLowestPowerEntity();
     }
 
     public void AdvanceToNextLowestPowerEntity()
@@ -90,7 +99,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartNextRoundWithDelay()
     {
-        yield return new WaitForSeconds(1f); // Sesuaikan delay jika diperlukan
+        yield return new WaitForSeconds(1f); // Adjust delay if necessary
 
         // Start the next round
         StartRound();
@@ -98,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator AdvanceToNextEntityWithDelay(Entity nextEntity)
     {
-        yield return new WaitForSeconds(1f); // Sesuaikan delay jika diperlukan
+        yield return new WaitForSeconds(1f); // Adjust delay if necessary
 
         HandleEntityTurn(nextEntity);
     }
