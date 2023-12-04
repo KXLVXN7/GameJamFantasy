@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
         public GameObject gameObject;
         public GameObject uiElement;
         public Attackable attackableComponent;
+        public bool hasMoved;
+        public bool canAttack; // Tambahkan variabel canAttack
     }
 
     public List<Entity> characters;
@@ -29,44 +31,68 @@ public class GameManager : MonoBehaviour
     void StartRound()
     {
         // Separate sorting for characters and enemies
-        sortedEntities = characters.OrderByDescending(entity => entity == characters[0] ? int.MinValue : entity.power)
+        sortedEntities = characters.OrderByDescending(entity => entity.power)
                          .Concat(enemies.OrderByDescending(entity => entity.power))
                          .ToList();
         Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
+
+        // Reset canAttack flag for all characters
+        foreach (Entity character in characters)
+        {
+            character.canAttack = false;
+        }
+
         // Handle the turn for the first entity
         HandleEntityTurn(sortedEntities.First());
     }
 
     void HandleEntityTurn(Entity entity)
     {
-        GameObject entityObject = entity.gameObject;
         bool isActiveUI = entity == sortedEntities.First();
 
         if (characters.Contains(entity) && entity != characters[0])
         {
             ShowCharacterUITurn(entity.uiElement);
             ActivateUI(entity.uiElement, isActiveUI);
+
+            // Check if it's the player character's turn and canAttack is true
+            if (entity == characters[0] && entity.canAttack)
+            {
+                // Player character's turn to attack
+                // Implement your player input logic for attack here
+                Debug.Log($"{entity.name} attacks!");
+
+                // TODO: Implement the logic for player character's attack
+
+                entity.hasMoved = true; // Mark as moved
+                entity.canAttack = false; // Reset canAttack flag
+                AdvanceToNextLowestPowerEntity(); // Move to the next entity
+            }
         }
-        else if (entity.attackableComponent != null)
+        else if (entity.attackableComponent != null && entity.canAttack)
         {
             HandleEnemyTurn(entity, entity.attackableComponent);
         }
-
-        entityObject.AddComponent<ClickHandler>();
-        entityObject.GetComponent<Attackable>()?.Attack();
     }
+
 
     void HandleEnemyTurn(Entity entity, Attackable attackableComponent)
     {
-        // Simulate enemy attack on a random character (adjust as needed)
-        int randomCharacterIndex = Random.Range(0, characters.Count);
-        Entity targetCharacter = characters[randomCharacterIndex];
+        if (!entity.hasMoved)
+        {
+            // Simulate enemy attack on the character with the highest power
+            Entity targetCharacter = characters.OrderByDescending(c => c.power).First();
+            Debug.Log($"{entity.name} attacks {targetCharacter.name}");
 
-        Debug.Log($"{entity.name} attacks {targetCharacter.name}");
+            // TODO: Implement the logic for enemy attack
 
-        // TODO: Implement the logic for enemy attack
-
-        AdvanceToNextLowestPowerEntity();
+            entity.hasMoved = true;
+            AdvanceToNextLowestPowerEntity();
+        }
+        else
+        {
+            AdvanceToNextLowestPowerEntity();
+        }
     }
 
     public void AdvanceToNextLowestPowerEntity()
@@ -101,6 +127,13 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Adjust delay if necessary
 
+        // Reset the hasMoved and canAttack flags for all entities
+        foreach (Entity entity in sortedEntities)
+        {
+            entity.hasMoved = false;
+            entity.canAttack = false;
+        }
+
         // Start the next round
         StartRound();
     }
@@ -120,5 +153,15 @@ public class GameManager : MonoBehaviour
     void ActivateUI(GameObject uiElement, bool isActive)
     {
         uiElement?.SetActive(isActive);
+    }
+
+    // Public method to allow player character to trigger attack
+    public void TriggerPlayerAttack()
+    {
+        // Set canAttack to true for the player character
+        if (characters.Count > 0)
+        {
+            characters[0].canAttack = true;
+        }
     }
 }
