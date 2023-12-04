@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,15 +12,14 @@ public class GameManager : MonoBehaviour
         public int power;
         public GameObject gameObject;
         public GameObject uiElement;
-        public Attackable attackableComponent;
-        public bool hasMoved;
-        public bool canAttack; // Tambahkan variabel canAttack
+        public Attackable attackableComponent; // Add a reference to the Attackable component
     }
 
     public List<Entity> characters;
     public List<Entity> enemies;
 
     private List<Entity> sortedEntities;
+    private int currentRound = 1;
     private int currentEntityIndex = 0;
 
     void Start()
@@ -30,68 +29,63 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        // Separate sorting for characters and enemies
-        sortedEntities = characters.OrderByDescending(entity => entity.power)
-                         .Concat(enemies.OrderByDescending(entity => entity.power))
-                         .ToList();
-        Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
+        List<Entity> allEntities = new List<Entity>(characters);
+        allEntities.AddRange(enemies);
 
-        // Reset canAttack flag for all characters
-        foreach (Entity character in characters)
+        sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
+
+        foreach (Entity entity in sortedEntities)
         {
-            character.canAttack = false;
-        }
+            GameObject entityObject = entity.gameObject;
 
-        // Handle the turn for the first entity
-        HandleEntityTurn(sortedEntities.First());
-    }
-
-    void HandleEntityTurn(Entity entity)
-    {
-        bool isActiveUI = entity == sortedEntities.First();
-
-        if (characters.Contains(entity) && entity != characters[0])
-        {
-            ShowCharacterUITurn(entity.uiElement);
+            bool isActiveUI = entity == sortedEntities.First();
             ActivateUI(entity.uiElement, isActiveUI);
 
-            // Check if it's the player character's turn and canAttack is true
-            if (entity == characters[0] && entity.canAttack)
+            entityObject.AddComponent<ClickHandler>();
+
+            // Perform actions based on entity type (character or enemy)
+            if (characters.Contains(entity))
             {
-                // Player character's turn to attack
-                // Implement your player input logic for attack here
-                Debug.Log($"{entity.name} attacks!");
-
-                // TODO: Implement the logic for player character's attack
-
-                entity.hasMoved = true; // Mark as moved
-                entity.canAttack = false; // Reset canAttack flag
-                AdvanceToNextLowestPowerEntity(); // Move to the next entity
+                // ... (rest of the code for characters)
+            }
+            else
+            {
+                // ... (rest of the code for enemies)
+                if (entity.attackableComponent != null && entity.attackableComponent is EnemyAttackable)
+                {
+                    // If it's an enemy, call the AI attack method
+                    ((EnemyAttackable)entity.attackableComponent).EnemyAIAttack();
+                }
             }
         }
-        else if (entity.attackableComponent != null && entity.canAttack)
+
+        Debug.Log($"Round {currentRound} - Movement Order:");
+
+        foreach (Entity entity in sortedEntities.Skip(1))
         {
-            HandleEnemyTurn(entity, entity.attackableComponent);
+            if (characters.Contains(entity))
+            {
+                ActivateUI(entity.uiElement, false);
+            }
         }
+
+        currentRound++;
+        SetTurnForCurrentEntity();
     }
 
-
-    void HandleEnemyTurn(Entity entity, Attackable attackableComponent)
+    void SetTurnForCurrentEntity()
     {
-        if (!entity.hasMoved)
+        Entity currentEntity = sortedEntities[currentEntityIndex];
+        if (currentEntity.attackableComponent != null)
         {
-            // Simulate enemy attack on the character with the highest power
-            Entity targetCharacter = characters.OrderByDescending(c => c.power).First();
-            Debug.Log($"{entity.name} attacks {targetCharacter.name}");
-
-            // TODO: Implement the logic for enemy attack
-
-            entity.hasMoved = true;
-            AdvanceToNextLowestPowerEntity();
+            // Call the Attack method for the current entity
+            currentEntity.attackableComponent.Attack();
         }
-        else
+
+        // If it's an enemy, set the turn for the next enemy
+        if (enemies.Contains(currentEntity) && currentEntity.attackableComponent is EnemyAttackable)
         {
-            AdvanceToNextLowestPowerEntity();
+            ((EnemyAttackable)currentEntity.attackableComponent).SetEnemyTurn();
         }
     }
 
@@ -103,65 +97,27 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        // Deactivate UI for the current entity
         Entity currentEntity = sortedEntities[currentEntityIndex];
         ActivateUI(currentEntity.uiElement, false);
-        Debug.Log($"Current entity with highest power: {currentEntity.name}");
 
+        // Move to the next entity in a round-robin fashion
         currentEntityIndex = (currentEntityIndex + 1) % sortedEntities.Count;
 
-        // Check if all entities have taken their turns in the current round
-        if (currentEntityIndex == 0)
-        {
-            // If all entities have taken their turns, start the next round
-            StartCoroutine(StartNextRoundWithDelay());
-        }
-        else
-        {
-            // Otherwise, advance to the next entity
-            Entity nextEntity = sortedEntities[currentEntityIndex];
-            StartCoroutine(AdvanceToNextEntityWithDelay(nextEntity));
-        }
-    }
+        // Activate UI for the next entity
+        Entity nextEntity = sortedEntities[currentEntityIndex];
+        ActivateUI(nextEntity.uiElement, true);
 
-    private IEnumerator StartNextRoundWithDelay()
-    {
-        yield return new WaitForSeconds(1f); // Adjust delay if necessary
+        Debug.Log($"Next entity with highest power: {nextEntity.name}");
 
-        // Reset the hasMoved and canAttack flags for all entities
-        foreach (Entity entity in sortedEntities)
-        {
-            entity.hasMoved = false;
-            entity.canAttack = false;
-        }
-
-        // Start the next round
-        StartRound();
-    }
-
-    private IEnumerator AdvanceToNextEntityWithDelay(Entity nextEntity)
-    {
-        yield return new WaitForSeconds(1f); // Adjust delay if necessary
-
-        HandleEntityTurn(nextEntity);
-    }
-
-    void ShowCharacterUITurn(GameObject uiElement)
-    {
-        uiElement.SetActive(true);
+        SetTurnForCurrentEntity();
     }
 
     void ActivateUI(GameObject uiElement, bool isActive)
     {
-        uiElement?.SetActive(isActive);
-    }
-
-    // Public method to allow player character to trigger attack
-    public void TriggerPlayerAttack()
-    {
-        // Set canAttack to true for the player character
-        if (characters.Count > 0)
+        if (uiElement != null)
         {
-            characters[0].canAttack = true;
+            uiElement.SetActive(isActive);
         }
     }
 }
