@@ -5,24 +5,19 @@ public class EnemyAttackable : Attackable
     public delegate void EnemyTurnCompletedDelegate();
     public event EnemyTurnCompletedDelegate OnEnemyTurnCompleted;
 
-    public float enemyAttackPower = 10f; // Adjust the attack power as needed
-    private GameManager gameManager; // Reference to the GameManager
-    private bool isEnemyTurn = false; // Flag to check if it's the enemy's turn
-
-    // Property to check if it's the enemy's turn
-    public bool IsEnemyTurn => isEnemyTurn;
+    public float enemyAttackPower = 10f; // Sesuaikan kekuatan serangan sesuai kebutuhan
+    private GameManager2 gameManager; // Referensi ke GameManager2
+    private bool isEnemyTurn = false; // Flag untuk memeriksa apakah ini giliran musuh
 
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>(); // Find the GameManager in the scene
+        gameManager = FindObjectOfType<GameManager2>(); // Temukan GameManager2 di dalam scene
     }
 
-    // Function to set the turn flag when it's the enemy's turn
+    // Fungsi untuk menetapkan flag giliran ketika ini adalah giliran musuh
     public void SetEnemyTurn()
     {
         isEnemyTurn = true;
-        // Optionally, you can add log or notification when the enemy's turn starts
-        // Debug.Log($"{entityInfo.name}'s turn has started!");
     }
 
     public void EnemyAIAttack()
@@ -33,15 +28,12 @@ public class EnemyAttackable : Attackable
 
             AttackCharacter();
 
-            // Optionally, you can add effects or animations for the enemy attack
-            // ...
-
             Debug.Log("Enemy attacks the player!");
 
-            // After attacking, raise the event to signal the completion of the enemy's turn
+            // Setelah menyerang, naikkan event untuk menandakan selesainya giliran musuh
             OnEnemyTurnCompleted?.Invoke();
 
-            // After attacking, reset the turn flag
+            // Setelah menyerang, reset flag giliran
             isEnemyTurn = false;
         }
         else
@@ -60,7 +52,7 @@ public class EnemyAttackable : Attackable
                 CharacterHealth characterHealth = player.GetComponent<CharacterHealth>();
                 if (characterHealth != null)
                 {
-                    // Perform the attack on the character
+                    // Lakukan serangan pada karakter
                     characterHealth.TakeDamageCharacter(enemyAttackPower);
                 }
                 else

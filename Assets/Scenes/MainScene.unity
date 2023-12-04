@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -1666,7 +1666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &544996329
 Transform:
   m_ObjectHideFlags: 0
@@ -2176,42 +2176,12 @@ MonoBehaviour:
     gameObject: {fileID: 1956149356}
     uiElement: {fileID: 1427861536}
     attackableComponent: {fileID: 1956149365}
-  - name: Thieves
-    power: 8
-    gameObject: {fileID: 2138644052}
-    uiElement: {fileID: 1427718981}
-    attackableComponent: {fileID: 2138644061}
-  - name: Mage
-    power: 6
-    gameObject: {fileID: 978773640}
-    uiElement: {fileID: 491360099}
-    attackableComponent: {fileID: 978773649}
-  - name: Healer
-    power: 4
-    gameObject: {fileID: 1414541891}
-    uiElement: {fileID: 982925040}
-    attackableComponent: {fileID: 1414541899}
   enemies:
-  - name: Enemy1
+  - name: Golem
     power: 9
     gameObject: {fileID: 1628449931}
     uiElement: {fileID: 969093079}
-    attackableComponent: {fileID: 896066984}
-  - name: Enemy2
-    power: 7
-    gameObject: {fileID: 896066978}
-    uiElement: {fileID: 544996328}
-    attackableComponent: {fileID: 557581177}
-  - name: Enemy3
-    power: 5
-    gameObject: {fileID: 1159644877}
-    uiElement: {fileID: 1654325884}
     attackableComponent: {fileID: 1628449936}
-  - name: Enemy4
-    power: 3
-    gameObject: {fileID: 557581172}
-    uiElement: {fileID: 1152421376}
-    attackableComponent: {fileID: 1159644882}
 --- !u!1 &822058089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2656,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -3000,7 +2970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &969093080
 Transform:
   m_ObjectHideFlags: 0
@@ -3370,7 +3340,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -3503,7 +3473,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -3636,7 +3606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -3701,7 +3671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1152421377
 Transform:
   m_ObjectHideFlags: 0
@@ -4419,7 +4389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -4667,7 +4637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1654325885
 Transform:
   m_ObjectHideFlags: 0
@@ -5250,7 +5220,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -5383,7 +5353,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -5555,7 +5525,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -6059,7 +6029,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1
@@ -6391,7 +6361,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 685672428}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: AdvanceToNextLowestPowerEntity
         m_Mode: 1

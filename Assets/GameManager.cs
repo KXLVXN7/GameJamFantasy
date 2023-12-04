@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
 
     void StartRound()
     {
-        // Concatenate characters and enemies, then order them by power in descending order
-        sortedEntities = characters.Concat(enemies).OrderByDescending(entity => entity.power).ToList();
-
+        // Sort characters and enemies by power in descending order
+        sortedEntities = characters.Concat(enemies).OrderByDescending(entity => entity == characters[0] ? int.MinValue : entity.power).ToList();
+        Debug.Log($"Round {currentEntityIndex + 1} - Movement Order:");
         // Handle the turn for the first entity
         HandleEntityTurn(sortedEntities.First());
     }
@@ -39,37 +39,25 @@ public class GameManager : MonoBehaviour
     {
         GameObject entityObject = entity.gameObject;
         bool isActiveUI = entity == sortedEntities.First();
-        ActivateUI(entity.uiElement, isActiveUI);
 
-        if (characters.Contains(entity))
+        // Tambahkan pengecualian untuk knight
+        if (characters.Contains(entity) && entity != characters[0])
         {
-            HandleCharacterTurn(entity);
+            ActivateUI(entity.uiElement, isActiveUI);
         }
-        else if (entity.attackableComponent is EnemyAttackable enemyAttackable)
+        else if (entity.attackableComponent != null)
         {
-            if (enemyAttackable.IsEnemyTurn)
-            {
-                HandleEnemyTurn(entity, enemyAttackable);
-            }
+            HandleEnemyTurn(entity, entity.attackableComponent);
         }
 
         entityObject.AddComponent<ClickHandler>();
         entityObject.GetComponent<Attackable>()?.Attack();
     }
 
-    void HandleCharacterTurn(Entity entity)
+    void HandleEnemyTurn(Entity entity, Attackable attackableComponent)
     {
-        entity.attackableComponent?.StartCharacterTurn();
-    }
-
-    void HandleEnemyTurn(Entity entity, EnemyAttackable enemyAttackable)
-    {
-        if (entity.attackableComponent != null)
-        {
-            enemyAttackable.SetEnemyTurn();
-            enemyAttackable.OnEnemyTurnCompleted += AdvanceToNextLowestPowerEntity;
-            enemyAttackable.EnemyAIAttack();
-        }
+        attackableComponent.OnAttackCompleted += AdvanceToNextLowestPowerEntity;
+        attackableComponent.Attack();
     }
 
     public void AdvanceToNextLowestPowerEntity()
@@ -82,16 +70,35 @@ public class GameManager : MonoBehaviour
 
         Entity currentEntity = sortedEntities[currentEntityIndex];
         ActivateUI(currentEntity.uiElement, false);
+        Debug.Log($"Current entity with highest power: {currentEntity.name}");
 
         currentEntityIndex = (currentEntityIndex + 1) % sortedEntities.Count;
 
-        Entity nextEntity = sortedEntities[currentEntityIndex];
-        StartCoroutine(AdvanceToNextEntityWithDelay(nextEntity));
+        // Check if all entities have taken their turns in the current round
+        if (currentEntityIndex == 0)
+        {
+            // If all entities have taken their turns, start the next round
+            StartCoroutine(StartNextRoundWithDelay());
+        }
+        else
+        {
+            // Otherwise, advance to the next entity
+            Entity nextEntity = sortedEntities[currentEntityIndex];
+            StartCoroutine(AdvanceToNextEntityWithDelay(nextEntity));
+        }
+    }
+
+    private IEnumerator StartNextRoundWithDelay()
+    {
+        yield return new WaitForSeconds(1f); // Sesuaikan delay jika diperlukan
+
+        // Start the next round
+        StartRound();
     }
 
     private IEnumerator AdvanceToNextEntityWithDelay(Entity nextEntity)
     {
-        yield return new WaitForSeconds(1f); // Adjust the delay as needed
+        yield return new WaitForSeconds(1f); // Sesuaikan delay jika diperlukan
 
         HandleEntityTurn(nextEntity);
     }
