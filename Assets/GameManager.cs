@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         public int power;
         public GameObject gameObject;
         public GameObject uiElement;
-        public Attackable attackableComponent; // Reference to the Attackable component
+        public Attackable attackable; // Rename to avoid conflicts
     }
 
     public List<Entity> characters;
@@ -23,22 +23,22 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        StartRound();
+        StartGameRound(); // Rename to avoid conflicts
     }
 
-    void StartRound()
+    void StartGameRound() // Rename to avoid conflicts
     {
         List<Entity> allEntities = new List<Entity>(characters);
         allEntities.AddRange(enemies);
 
-        // Sort entities by power in descending order
         sortedEntities = allEntities.OrderByDescending(entity => entity.power).ToList();
 
-        // Activate UI for the first entity and set up click handling
         foreach (Entity entity in sortedEntities)
         {
-            ActivateUI(entity.uiElement, entity == sortedEntities.First());
-            entity.gameObject.AddComponent<ClickHandler>();
+            GameObject entityObject = entity.gameObject;
+
+            bool isActiveUI = entity == sortedEntities.First();
+            ActivateUIElement(entity.uiElement, isActiveUI);
 
             // Perform actions based on entity type (character or enemy)
             if (characters.Contains(entity))
@@ -48,19 +48,29 @@ public class GameManager : MonoBehaviour
             else
             {
                 // ... (rest of the code for enemies)
-                if (entity.attackableComponent is EnemyAttackable enemyAttackable)
+                if (entity.attackable != null && entity.attackable is EnemyAttackable)
                 {
-                    enemyAttackable.EnemyAIAttack();
+                    // If it's an enemy, call the AI attack method
+                    ((EnemyAttackable)entity.attackable).EnemyAIAttack(characters);
                 }
+            }
+
+            entityObject.AddComponent<ClickHandler>();
+            Attackable attackableComponent = entityObject.GetComponent<Attackable>();
+            if (attackableComponent != null)
+            {
+                attackableComponent.Attack();
             }
         }
 
         Debug.Log($"Round {currentRound} - Movement Order:");
 
-        // Deactivate UI for all characters except the first one
-        foreach (Entity entity in sortedEntities.Skip(1).Where(characters.Contains))
+        foreach (Entity entity in sortedEntities.Skip(1))
         {
-            ActivateUI(entity.uiElement, false);
+            if (characters.Contains(entity))
+            {
+                ActivateUIElement(entity.uiElement, false);
+            }
         }
 
         currentRound++;
@@ -69,25 +79,10 @@ public class GameManager : MonoBehaviour
 
     void SetTurnForCurrentEntity()
     {
-        if (currentEntityIndex >= 0 && currentEntityIndex < sortedEntities.Count)
+        Entity currentEntity = sortedEntities[currentEntityIndex];
+        if (enemies.Contains(currentEntity) && currentEntity.attackable is EnemyAttackable)
         {
-            Entity currentEntity = sortedEntities[currentEntityIndex];
-
-            if (currentEntity.attackableComponent != null)
-            {
-                currentEntity.attackableComponent.Attack();
-
-                // If it's an enemy, set its turn and perform AI attack
-                if (currentEntity.attackableComponent is EnemyAttackable enemyAttackable)
-                {
-                    enemyAttackable.SetEnemyTurn();
-                    enemyAttackable.EnemyAttackCharacter(characters);
-                }
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Invalid currentEntityIndex");
+            ((EnemyAttackable)currentEntity.attackable).SetEnemyTurn();
         }
     }
 
@@ -101,21 +96,25 @@ public class GameManager : MonoBehaviour
 
         // Deactivate UI for the current entity
         Entity currentEntity = sortedEntities[currentEntityIndex];
-        ActivateUI(currentEntity.uiElement, false);
+        ActivateUIElement(currentEntity.uiElement, false);
 
         // Move to the next entity in a round-robin fashion
         currentEntityIndex = (currentEntityIndex + 1) % sortedEntities.Count;
 
         // Activate UI for the next entity
         Entity nextEntity = sortedEntities[currentEntityIndex];
-        ActivateUI(nextEntity.uiElement, true);
+        ActivateUIElement(nextEntity.uiElement, true);
 
         Debug.Log($"Next entity with highest power: {nextEntity.name}");
 
-        SetTurnForCurrentEntity();
+        // Perform actions based on entity type (character or enemy)
+        if (enemies.Contains(nextEntity) && nextEntity.attackable is EnemyAttackable)
+        {
+            ((EnemyAttackable)nextEntity.attackable).EnemyAIAttack(characters);
+        }
     }
 
-    void ActivateUI(GameObject uiElement, bool isActive)
+    void ActivateUIElement(GameObject uiElement, bool isActive)
     {
         if (uiElement != null)
         {
