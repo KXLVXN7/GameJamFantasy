@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class EnemyAttackable : Attackable
+public class EnemyAttackable : Attackable   
 {
     public void EnemyAIAttack(List<GameManager.Entity> characters)
     {
